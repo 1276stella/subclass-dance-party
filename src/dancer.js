@@ -4,7 +4,7 @@ var Dancer = function(top, left, timeBetweenSteps){
   //var dancer = {};
 
   // use jQuery to create an HTML <span> tag
-  this.$node = $('<span class="dancer"></span>');
+  // this.$node = $('<span class="dancer"></span>');
   this.top = top;
   this.left = left;
   this.timeBetweenSteps = timeBetweenSteps;
@@ -14,7 +14,13 @@ var Dancer = function(top, left, timeBetweenSteps){
   //return dancer;
   // BlinkyDancer.prototype.step();   ASK FELLOWS WHY THIS DOESN'T WORK
   this.step();
+  // console.log('this before', this);
+  // console.log('this.node before', this.$node);
+
   this.setPosition();
+  // console.log("this after",this);
+  // console.log('this.node after', this.$node);  
+
   // console.log(this);
 };
 
@@ -33,6 +39,7 @@ Dancer.prototype.setPosition = function(){
     top: this.top,
     left: this.left
   };
+  // console.log('this.node', this.$node);
   this.$node.css(styleSettings);
 };
 
