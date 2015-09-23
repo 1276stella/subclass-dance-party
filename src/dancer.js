@@ -1,8 +1,6 @@
 // Creates and returns a new dancer object that can step
 var Dancer = function(top, left, timeBetweenSteps){
 
-  //var dancer = {};
-
   // use jQuery to create an HTML <span> tag
   // this.$node = $('<span class="dancer"></span>');
   this.top = top;
@@ -11,17 +9,9 @@ var Dancer = function(top, left, timeBetweenSteps){
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
   // this one sets the position to some random default point within the body
 
-  //return dancer;
-  // BlinkyDancer.prototype.step();   ASK FELLOWS WHY THIS DOESN'T WORK
   this.step();
-  // console.log('this before', this);
-  // console.log('this.node before', this.$node);
-
   this.setPosition();
-  // console.log("this after",this);
-  // console.log('this.node after', this.$node);  
 
-  // console.log(this);
 };
 
 Dancer.prototype.step = function(){

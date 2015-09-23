@@ -1,3 +1,4 @@
+var $this;
 $(document).ready(function(){
   window.dancers = [];
 
@@ -26,8 +27,7 @@ $(document).ready(function(){
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
-    console.log(dancer);
-    // console.log("dancer",dancer);
+
     $('body').append(dancer.$node);
     window.dancers.push(dancer.$node);
 
@@ -39,19 +39,24 @@ $(document).ready(function(){
   // check if it is within the closest range
   // if it is, change its position
     $(".wackyDancer").on("mouseover", function(event){
-      var min = 5000;
-      var target;
-      console.log($(this));
+      var min = Math.pow(5000, 2);
+      var target, index;
+      $this = $(this);
+      console.log('this', $(this).position().top, $(this).position().left);
       for (var i = 0; i < window.dancers.length; i++) {
+        console.log(i, window.dancers[i].position().top, window.dancers[i].position().left);
         if(window.dancers[i] !== $(this)) {
-          var dist = ($(this).position().top - window.dancers[i].position().top)^2 + ($(this).position().left - window.dancers[i].position().left)^2;
-          if(dist < min) {
+          var dist = Math.pow(($(this).position().top - window.dancers[i].position().top),2) + Math.pow(($(this).position().left - window.dancers[i].position().left), 2);
+          console.log(i,'dist',dist);
+          if(dist < min && dist !== 0) {
             min = dist;
+            index = i;
             target = window.dancers[i];
           }
+          console.log('min',min, 'i', index);
         }
       }
-      target.css('top',$(this).css('top'));
+      target.animate({'top':$(this).css('top'), 'left':$(this).css('left')});
     });
 
   });
@@ -59,9 +64,6 @@ $(document).ready(function(){
  $(".addLineupButton").on("click", function(event){
     Dancer.prototype.lineUp();
  });
-
-
-
 
 });
 
