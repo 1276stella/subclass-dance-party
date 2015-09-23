@@ -1,5 +1,5 @@
 var GrowingDancer = function(top, left, timeBetweenSteps) {
-  this.$node = $('<span class="heart-shape"></span>');  
+  this.$node = $('<span class="growingDancer"></span>');  
   Dancer.call(this, top, left, timeBetweenSteps);
 }
 
@@ -15,8 +15,8 @@ GrowingDancer.prototype.step = function() {
   // console.log("this.node after", this.$node.css('border-color'));
 
 
-  // this.$node.animate({width: '1px'});
-  // this.$node.animate({width: '100px'});  
+  this.$node.animate({width: '1px'});
+  this.$node.animate({width: '100px'});  
 
   // this.$node.css({borderWidth: '10px'});
   // this.$node.css({borderWidth: '30px'});

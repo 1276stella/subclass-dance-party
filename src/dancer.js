@@ -43,4 +43,12 @@ Dancer.prototype.setPosition = function(){
   this.$node.css(styleSettings);
 };
 
-// console.log(this);
+Dancer.prototype.lineUp = function() {
+  var styleSettings = {
+    left: '0px'
+  };
+
+  for (var i = 0; i < window.dancers.length; i++) {
+    window.dancers[i].css(styleSettings);
+  }
+};

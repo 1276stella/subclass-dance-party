@@ -28,8 +28,40 @@ $(document).ready(function(){
     );
     console.log(dancer);
     // console.log("dancer",dancer);
-    // $('body').append(dancer.$node);
-    $('body').append($('<span class="heart-shape"></span>'));
+    $('body').append(dancer.$node);
+    window.dancers.push(dancer.$node);
+
+    $(".growingDancer").on("mouseover", function(event){
+      $(this).css("borderColor", "yellow");
+    });
+
+//for each element
+  // check if it is within the closest range
+  // if it is, change its position
+    $(".wackyDancer").on("mouseover", function(event){
+      var min = 5000;
+      var target;
+      console.log($(this));
+      for (var i = 0; i < window.dancers.length; i++) {
+        if(window.dancers[i] !== $(this)) {
+          var dist = ($(this).position().top - window.dancers[i].position().top)^2 + ($(this).position().left - window.dancers[i].position().left)^2;
+          if(dist < min) {
+            min = dist;
+            target = window.dancers[i];
+          }
+        }
+      }
+      target.css('top',$(this).css('top'));
+    });
+
   });
+
+ $(".addLineupButton").on("click", function(event){
+    Dancer.prototype.lineUp();
+ });
+
+
+
+
 });
 

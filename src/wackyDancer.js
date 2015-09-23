@@ -19,5 +19,8 @@ WackyDancer.prototype.step = function() {
   // this.$node.css({borderWidth: '10px'});
   // this.$node.css({borderWidth: '30px'});
 
+  this.$node.css("width", '10px');
+  this.$node.css("width", '40px');
+
   this.$node.toggleClass('pinkWackyDancer');
-} 
+}
